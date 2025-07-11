@@ -22,7 +22,7 @@ register_match() POST
 - team1 list[player]
 - team2 list[player]
 - score tuple[int]
-/register-player
+/register-match
 
 get_leaderboard() -> list[player] (hanno un elo dento)
 /leaderboard
