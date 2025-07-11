@@ -1,0 +1,39 @@
+<div class="home-page-container page-with-padding">
+  <mat-spinner class="page-loader" diameter="35" *ngIf="loading"></mat-spinner>
+
+  <ng-container *ngIf="players && !loading">
+    <form [formGroup]="fg">
+      <div class="column">
+        <div class="row">
+          <mat-form-field class="player-component">
+            <mat-label>Player1</mat-label>
+            <mat-select formControlName="player1">
+              @for (player of players; track player) {
+              <mat-option [value]="player.name">{{ player.name }}</mat-option>
+              }
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field>
+            <input matInput type="number" formControlName="team1Score" />
+          </mat-form-field>
+        </div>
+
+        <div class="row">
+          <mat-form-field class="player-component">
+            <mat-label>Player2</mat-label>
+            <mat-select formControlName="player2">
+              @for (player of players; track player) {
+              <mat-option [value]="player.name">{{ player.name }}</mat-option>
+              }
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput type="number" formControlName="team2Score" />
+          </mat-form-field>
+        </div>
+      </div>
+      <button mat-raised-button color="primary" type="submit">ADD SCORE</button>
+    </form>
+  </ng-container>
+</div>

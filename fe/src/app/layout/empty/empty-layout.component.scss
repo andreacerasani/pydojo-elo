@@ -1,0 +1,41 @@
+@import "variables";
+@import "colors";
+
+.empty-layout-container {
+  position: relative;
+  min-height: 100vh;
+  background-color: $background-color;
+
+  .dark-mode & {
+    background-color: $blue900 !important;
+  }
+
+  user-widget {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+  }
+
+  .adcube-logo-container {
+    height: $emptyLayoutHeaderHeight;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .adcube-logo {
+      height: 3rem;
+    }
+  }
+
+  .page-content {
+    min-height: calc(100vh - $footerHeight - $emptyLayoutHeaderHeight);
+  }
+
+  .page-loader{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+  }
+
+}
