@@ -36,4 +36,28 @@
       <button mat-raised-button color="primary" type="submit">ADD SCORE</button>
     </form>
   </ng-container>
+  <mat-spinner
+    class="page-loader"
+    diameter="35"
+    *ngIf="loadingMatches"
+  ></mat-spinner>
+
+  <ng-container *ngIf="matches && !loadingMatches" class="matches">
+    <div *ngFor="let match of matches">
+      <div class="team">
+        Team 1:
+        <div *ngFor="let player of match.team1">
+          {{player.name}} {{player.surname}}
+        </div>
+      </div>
+      <div class="team">
+        Team 2:
+        <div *ngFor="let player of match.team2">
+          {{player.name}} {{player.surname}}
+        </div>
+      </div>
+
+      Score: {{match.score}}
+    </div>
+  </ng-container>
 </div>

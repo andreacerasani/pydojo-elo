@@ -12,7 +12,7 @@ import { MatInputModule } from "@angular/material/input";
 import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 import { MatSelectModule } from "@angular/material/select";
 import { ApiService } from "../../../service/api.service";
-import { Player } from "../../../types/model";
+import { Match, Player } from "../../../types/model";
 
 @Component({
   selector: "home-page",
@@ -32,7 +32,10 @@ import { Player } from "../../../types/model";
 })
 export class HomePageComponent implements OnInit {
   loading: boolean = false;
+  loadingMatches: boolean = false;
+
   players: Player[] | null = null;
+  matches: Match[] | null = null;
 
   constructor(private apiService: ApiService, private fb: FormBuilder) {}
 
@@ -45,6 +48,7 @@ export class HomePageComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadPlayers();
+    this.getMatches();
   }
 
   loadPlayers() {
@@ -52,6 +56,32 @@ export class HomePageComponent implements OnInit {
     this.apiService.getPlayers().subscribe({
       next: (response) => {
         this.players = response;
+        this.loading = false;
+      },
+      error: () => {
+        this.loading = false;
+      },
+    });
+  }
+
+  addScore() {
+    this.loading = true;
+    this.apiService.getPlayers().subscribe({
+      next: (response) => {
+        this.players = response;
+        this.loading = false;
+      },
+      error: () => {
+        this.loading = false;
+      },
+    });
+  }
+
+  getMatches() {
+    this.loading = true;
+    this.apiService.getMatches().subscribe({
+      next: (response) => {
+        this.matches = response;
         this.loading = false;
       },
       error: () => {

@@ -17,4 +17,17 @@
     flex-direction: row;
     gap: 3rem
   }
+
+  .team {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+  }
+
+  .matches {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
 }
