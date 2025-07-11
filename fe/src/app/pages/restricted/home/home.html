@@ -6,8 +6,8 @@
       <div class="column">
         <div class="row">
           <mat-form-field class="player-component">
-            <mat-label>Player1</mat-label>
-            <mat-select formControlName="player1">
+            <mat-label>team1</mat-label>
+            <mat-select formControlName="player1" multiple>
               @for (player of players; track player) {
               <mat-option [value]="player.name">{{ player.name }}</mat-option>
               }
@@ -15,27 +15,42 @@
           </mat-form-field>
 
           <mat-form-field>
-            <input matInput type="number" formControlName="team1Score" />
+            <input
+              matInput
+              type="number"
+              formControlName="team1Score"
+              min="0"
+              max="10"
+            />
           </mat-form-field>
         </div>
 
         <div class="row">
           <mat-form-field class="player-component">
-            <mat-label>Player2</mat-label>
-            <mat-select formControlName="player2">
+            <mat-label>team2</mat-label>
+            <mat-select formControlName="player2" multiple>
               @for (player of players; track player) {
               <mat-option [value]="player.name">{{ player.name }}</mat-option>
               }
             </mat-select>
           </mat-form-field>
           <mat-form-field>
-            <input matInput type="number" formControlName="team2Score" />
+            <input
+              matInput
+              type="number"
+              formControlName="team2Score"
+              min="0"
+              max="10"
+            />
           </mat-form-field>
         </div>
       </div>
-      <button mat-raised-button color="primary" type="submit">ADD SCORE</button>
+      <button mat-raised-button color="primary" type="submit">ADD MATCH</button>
     </form>
   </ng-container>
+  <mat-divider>
+    
+  </mat-divider>
   <mat-spinner
     class="page-loader"
     diameter="35"
@@ -43,23 +58,22 @@
   ></mat-spinner>
 
   <ng-container *ngIf="matches && !loadingMatches">
-    <div class="matches">
-      <div *ngFor="let match of matches">
-        <div class="team">
-          Team 1:
-          <div *ngFor="let player of match.team1">
-            {{player.name}} {{player.surname}}
-          </div>
+    <div *ngFor="let match of matches" class="matches">
+      {{match.timestamp}}
+      <div class="team">
+        Team 1:
+        <div *ngFor="let player of match.team1">
+          {{player.name}} {{player.surname}}
         </div>
-        <div class="team">
-          Team 2:
-          <div *ngFor="let player of match.team2">
-            {{player.name}} {{player.surname}}
-          </div>
-        </div>
-
-        Score: {{match.score}}
       </div>
+      <div class="team">
+        Team 2:
+        <div *ngFor="let player of match.team2">
+          {{player.name}} {{player.surname}}
+        </div>
+      </div>
+
+      Score: {{match.score}}
     </div>
   </ng-container>
 </div>

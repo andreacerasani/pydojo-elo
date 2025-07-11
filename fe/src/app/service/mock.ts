@@ -119,6 +119,35 @@ export const MOCK_MATCH: Match[] = [
         surname: "Ristic",
       },
     ],
+    timestamp: "2025-07-10",
+  },
+
+  {
+    score: [6, 10],
+    team1: [
+      {
+        name: "Nicole",
+        playerId: "5",
+        surname: "Gentile",
+      },
+      {
+        name: "Andrea",
+        playerId: "3",
+        surname: "Cesarini",
+      },
+    ],
+    team2: [
+      {
+        name: "Damiano",
+        playerId: "2",
+        surname: "D'Aleo",
+      },
+      {
+        name: "Ale",
+        playerId: "4",
+        surname: "Lavelli",
+      },
+    ],
     timestamp: "2025-07-11",
   },
 ];

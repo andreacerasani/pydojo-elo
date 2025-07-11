@@ -13,6 +13,7 @@ import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 import { MatSelectModule } from "@angular/material/select";
 import { ApiService } from "../../../service/api.service";
 import { Match, Player } from "../../../types/model";
+import { MatDividerModule } from "@angular/material/divider";
 
 @Component({
   selector: "home-page",
@@ -28,6 +29,7 @@ import { Match, Player } from "../../../types/model";
     ReactiveFormsModule,
     MatProgressSpinnerModule,
     MatButtonModule,
+    MatDividerModule,
   ],
 })
 export class HomePageComponent implements OnInit {

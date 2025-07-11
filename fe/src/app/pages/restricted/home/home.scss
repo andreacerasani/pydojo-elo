@@ -15,7 +15,7 @@
   .column {
     display: flex;
     flex-direction: row;
-    gap: 3rem
+    gap: 3rem;
   }
 
   .team {
@@ -24,10 +24,14 @@
     gap: 1rem;
   }
 
-  .matches {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+  mat-divider {
+    margin-top: 2rem;
   }
 
+  .matches {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
 }
