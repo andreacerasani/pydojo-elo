@@ -42,22 +42,24 @@
     *ngIf="loadingMatches"
   ></mat-spinner>
 
-  <ng-container *ngIf="matches && !loadingMatches" class="matches">
-    <div *ngFor="let match of matches">
-      <div class="team">
-        Team 1:
-        <div *ngFor="let player of match.team1">
-          {{player.name}} {{player.surname}}
+  <ng-container *ngIf="matches && !loadingMatches">
+    <div class="matches">
+      <div *ngFor="let match of matches">
+        <div class="team">
+          Team 1:
+          <div *ngFor="let player of match.team1">
+            {{player.name}} {{player.surname}}
+          </div>
         </div>
-      </div>
-      <div class="team">
-        Team 2:
-        <div *ngFor="let player of match.team2">
-          {{player.name}} {{player.surname}}
+        <div class="team">
+          Team 2:
+          <div *ngFor="let player of match.team2">
+            {{player.name}} {{player.surname}}
+          </div>
         </div>
-      </div>
 
-      Score: {{match.score}}
+        Score: {{match.score}}
+      </div>
     </div>
   </ng-container>
 </div>
